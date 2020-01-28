@@ -1,15 +1,15 @@
 import * as actions from './actions';
 
 describe('fetch posts action', () => {
-    it('fetchPosts should create GET_POSTS action', () => {
+    it('fetchPostsSuccess should create GET_POSTS action', () => {
         let posts = [{
             id: 5,
             userId: 12,
             title: 'sweet title',
             body: 'super content'
         }];
-        expect(actions.fetchPosts(posts)).toEqual({
-            type: actions.FETCH_POSTS,
+        expect(actions.fetchPostsSuccess(posts)).toEqual({
+            type: actions.FETCH_POSTS_SUCCESS,
             posts: posts
         });
     })

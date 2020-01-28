@@ -1,21 +1,18 @@
 import React from 'react';
-import logo from './logo.svg';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';  
 import reducer from './reducer';
+import Posts from './components/Posts';
+import thunkMiddleware from 'redux-thunk';
 import './App.css';
 
-const store = createStore(reducer);
+const store = createStore(reducer, applyMiddleware(thunkMiddleware));
 
 function App() {
   return (
     <Provider store={store}>
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>Hello
-          </p>
-        </header>
+      <div className="App">   
+        <Posts posts={null}/>
       </div>
     </Provider>
   );

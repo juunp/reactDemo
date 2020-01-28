@@ -1,5 +1,5 @@
 import posts from './reducer';
-import { FETCH_POSTS, FETCH_POSTS_PENDING, FETCH_POSTS_ERROR } from './actions';
+import { FETCH_POSTS_SUCCESS, FETCH_POSTS_PENDING, FETCH_POSTS_ERROR } from './actions';
 
 describe('posts reducer', () => {
     it('should handle initial state', () => {
@@ -10,14 +10,24 @@ describe('posts reducer', () => {
             error: null
         });
     })
-    it('should handle FETCH_POSTS', () => {
+    it('should handle FETCH_POSTS_SUCCESS', () => {
         expect(posts(undefined, {
-            type: FETCH_POSTS,
-            posts: []
+            type: FETCH_POSTS_SUCCESS,
+            posts: [{
+                id: 1,
+                userId: 12,
+                title: 'great title',
+                body: 'super content'
+            }]
         })).toEqual({
             pending: false,
             error: null,
-            posts: []
+            posts: [{
+                id: 1,
+                userId: 12,
+                title: 'great title',
+                body: 'super content'
+            }]
         })
     })
 
